@@ -1,0 +1,36 @@
+import {Sprite, getSpriteURL} from '../sprite.js';
+import {isBlank} from '../util.js';
+
+class {
+    onCreate(input, out){
+        this.state = {
+            classNames : input.classNames,
+            src : input.src,
+            sprite : input.sprite,
+            spriteURL : ""
+        }
+
+        this.getSpriteURL();
+    }
+
+    onInput(input, out){
+        this.state = {
+            classNames : input.classNames,
+            src : input.src,
+            sprite : input.sprite
+        }
+        this.getSpriteURL();
+    }
+
+    getSpriteURL(){
+        if(this.state.sprite !== null){
+            this.state.spriteURL = this.state.sprite.getSpriteURL();
+        }else{
+            this.state.spriteURL = this.state.src;
+        }
+    }
+}
+
+<svg class="${state.classNames}" aria-hidden="true">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="${state.spriteURL}" />
+</svg>

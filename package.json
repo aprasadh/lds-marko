@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "name": "marko-webpack1",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx budo static/bundle.js --live",
+    "build": "npx webpack -d"
+  },
+  "dependencies": {
+    "@salesforce-ux/design-system": "^2.5.0",
+    "budo": "^11.1.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "marko": "^4.7.5",
+    "marko-loader": "^1.3.2",
+    "svg-loader": "0.0.2",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.9",
+    "style-loader": "^0.20.1"
+  }
+}

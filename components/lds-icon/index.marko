@@ -1,0 +1,68 @@
+import {isBlank} from '../util.js';
+
+class {
+  onCreate(input, out){
+    this.state = {
+      sprite : {},
+      attributes : {},
+      description : "",
+      classNames : ["slds-icon_container"],
+      spriteClassNames : ["slds-icon"],
+      size : "",
+      color : "",
+      displayType : "",
+      circle: false
+    }
+
+    this.getOtherAttributes();
+  }
+
+  onInput(input, out) {
+    sprite = input.sprite;
+    description = input.description;
+    size = input.size;
+    color = input.color;
+    displayType = input.displayType;
+    circle = input.circle;
+
+    if(input.size == "x-small"){
+      spriteClassNames.push("slds-icon_x-small");
+    }else if(input.size == "small"){
+      spriteClassNames.push("slds-icon_small");
+    }else if(input.size == "large"){
+      spriteClassNames.push("slds-icon_large");
+    }
+
+    if(input.color == "default"){
+      spriteClassNames.push("slds-icon-text-default");
+    }else if(input.color == "error"){
+      spriteClassNames.push("slds-icon-text-error");
+    }else if(input.color == "warning"){
+      spriteClassNames.push("slds-icon-text-warning");
+    }else if(input.color == "light"){
+      spriteClassNames.push("slds-icon-text-light");
+    }
+
+    if(circle){
+      classNames.push("slds-icon_container_circle");
+    }
+
+    if(sprite != null){
+      classNames.push("slds-icon-" + sprite.category + "-" + sprite.name);
+    }
+
+    this.getOtherAttributes();
+  }
+
+  getOtherAttributes(){
+    if(!isBlank(this.state.description)){
+      this.state.attributes['title'] = this.state.description;
+    }
+  }
+}
+<span class=${state.classNames} ${state.attributes}>
+  <lds-svg classNames=${state.spriteClassNames} sprite=${state.sprite}/>
+  <if !isBlank(state.description)>
+    <span class="slds-assistive-text">${state.description}</span>
+  </if>
+</span>

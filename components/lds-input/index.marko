@@ -1,0 +1,81 @@
+import {Sprite} from '../sprite.js';
+static {
+  function sprite(category, name){
+    return new Sprite(category, name);
+  }
+}
+class {
+  onMount(){
+    
+  }
+  
+  onCreate(input, out) {
+    this.state = {
+      value: input.value,
+      required: input.required,
+      disabled: input.disabled,
+      errorMessage: input.errorMessage,
+      label:input.label,
+      placeholder:input.placeholder,
+      hasIcon:input.hasIcon,
+      attributes:{}
+    };
+    this.getOtherAttributes();
+  }
+  
+  onInput(input, out) {
+    this.getOtherAttributes();
+  }
+  
+  onRender(out) {
+
+  }
+
+  onUpdate() {
+    var inId = this.getEl("textinput").id;
+  }
+  
+  onDestroy() {
+    
+  }
+  
+  getOtherAttributes(){
+    if(this.state.disabled){
+      this.state.attributes['disabled'] = "disabled";
+    }
+    if(this.state.required){
+      this.state.attributes['required'] = "required";
+    }
+    if(this.hasErrorMessage()){
+      this.state.attributes['aria-describedby'] = this.getElId("errormessage");
+    }
+  }
+
+  hasErrorMessage(){
+    if(this.state.errorMessage != null && this.state.errorMessage != undefined
+      && this.state.errorMessage != "")
+      return true;
+    else
+      return false;
+  }
+}
+<div class=["slds-form-element", (component.hasErrorMessage() && "slds-has-error")]>
+  <label class="slds-form-element__label" for:scoped="input-text">
+  <if(state.required)>
+    <abbr class='slds-required' title='required'>*</abbr>
+  </if>
+  ${state.label}
+  </label>
+  <div class=["slds-form-element__control", (state.hasIcon && "slds-input-has-icon slds-input-has-icon_left")]>
+  <if(state.hasIcon)>
+    <lds-svg classNames=["slds-input__icon"] sprite=sprite("utility", "warning")/>
+  </if>
+    <input type="text" id:scoped="input-text" class="slds-input"
+      placeholder="${state.placeholder}" key="textinput"
+      value="${state.value}"
+      ${state.attributes}/>
+  </div>
+  <if(component.hasErrorMessage())>
+    <div id:scoped="error-message" key="errormessage" class="slds-form-element__help">${state.errorMessage}</div>
+  </if>
+</div>
