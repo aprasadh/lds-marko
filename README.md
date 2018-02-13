@@ -1,6 +1,6 @@
 # Introduction
 
-[![Join the chat at https://gitter.im/lds-marko/Lobby](https://badges.gitter.im/lds-marko/Lobby.svg)](https://gitter.im/lds-marko/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/lds-marko/main](https://badges.gitter.im/lds-marko/main.svg)](https://gitter.im/lds-marko/main?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 An implementation of [Salesforce Lightning Design System](https://www.lightningdesignsystem.com) in [MarkoJS](https://markojs.com)
 
