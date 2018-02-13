@@ -1,9 +1,9 @@
 {
-  "version": "0.1.0",
-  "name": "marko-webpack1",
+  "version": "0.0.1",
+  "name": "lds-marko",
   "main": "index.js",
   "scripts": {
-    "start": "npx budo static/bundle.js --live",
+    "start": "npx budo static/bundle.js --css static/bundle.css --live",
     "build": "npx webpack -d"
   },
   "dependencies": {
@@ -11,6 +11,8 @@
     "budo": "^11.1.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
+    "less": "^3.0.0",
+    "less-loader": "^4.0.5",
     "marko": "^4.7.5",
     "marko-loader": "^1.3.2",
     "svg-loader": "0.0.2",
@@ -20,5 +22,18 @@
   "devDependencies": {
     "css-loader": "^0.28.9",
     "style-loader": "^0.20.1"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/aprasadh/lds-marko.git"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "markojs", "javascript", "design-systems", "salesforce-lightning"
+  ],
+  "author": {
+    "name": "Guru Prasath Anandapadmanaban",
+    "email": "aprasadh@gmail.com",
+    "url": "https://medium.com/@guruprasath"
   }
 }

@@ -21,7 +21,7 @@ module.exports = {
             },
             {
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
-                loader: "url-loader?name=static/fonts/[name].[ext]&limit=10000&mimetype=application/font-woff"
+                loader: "url-loader?name=/static/fonts/[name].[ext]&limit=10&mimetype=application/font-woff"
             },
             {
                 test: /\.(less|css)$/,
@@ -41,4 +41,4 @@ module.exports = {
         // Write out CSS bundle to its own file:
         new ExtractTextPlugin('static/bundle.css', { allChunks: true })
     ]
-}
+};
