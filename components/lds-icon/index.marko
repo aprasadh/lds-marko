@@ -1,4 +1,6 @@
-import {isBlank} from '../util.js';
+static {
+    var Util = require('../util.js');
+}
 
 class {
   onCreate(input, out){
@@ -55,14 +57,14 @@ class {
   }
 
   getOtherAttributes(){
-    if(!isBlank(this.state.description)){
+    if(!Util.isBlank(this.state.description)){
       this.state.attributes['title'] = this.state.description;
     }
   }
 }
 <span class=${state.classNames} ${state.attributes}>
   <lds-svg classNames=${state.spriteClassNames} sprite=${state.sprite}/>
-  <if !isBlank(state.description)>
+  <if !Util.isBlank(state.description)>
     <span class="slds-assistive-text">${state.description}</span>
   </if>
 </span>

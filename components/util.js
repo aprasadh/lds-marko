@@ -1,4 +1,4 @@
-export function isBlank(value){
+exports.isBlank = (value) => {
     if(value === null){
         return true;
     }
@@ -7,4 +7,4 @@ export function isBlank(value){
     }
 
     return false;
-}
+};

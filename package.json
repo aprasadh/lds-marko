@@ -20,16 +20,22 @@
     "webpack": "^3.10.0"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
     "css-loader": "^0.28.9",
+    "marko-cli": "^2.2.1",
+    "mocha": "^5.0.1",
     "style-loader": "^0.20.1"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/aprasadh/lds-marko.git"
+    "type": "git",
+    "url": "https://github.com/aprasadh/lds-marko.git"
   },
   "license": "Apache-2.0",
   "keywords": [
-    "markojs", "javascript", "design-systems", "salesforce-lightning"
+    "markojs",
+    "javascript",
+    "design-systems",
+    "salesforce-lightning"
   ],
   "author": {
     "name": "Guru Prasath Anandapadmanaban",

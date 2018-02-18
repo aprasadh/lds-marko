@@ -60,3 +60,4 @@ typings/
 
 static/
 package-lock.json
+.cache
