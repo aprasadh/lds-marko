@@ -1,11 +1,8 @@
-const expect = require('chai').expect;
+/* global test */
+const {expect} = require('chai');
 const cheerio = require('cheerio');
 
-test('color-picker-selection color', function (context) {
-  const output = context.render({
-    label: "First Name"
-  });
-
+test('lds-input Basic', function (context) {
   let { component } = context;
 
   let subject = component.renderToString({
@@ -15,6 +12,4 @@ test('color-picker-selection color', function (context) {
   var $ = cheerio.load(subject);
 
   expect($('label','.slds-form-element').text()).to.be.equal("First Name");
-  //expect(output.$('label','.slds-form-element').text()).to.be.equal("First Name");
-
 });

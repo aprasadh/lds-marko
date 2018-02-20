@@ -4,27 +4,33 @@
   "main": "index.js",
   "scripts": {
     "start": "npx budo static/bundle.js --css static/bundle.css --live",
-    "build": "npx webpack -d"
+    "build": "npx webpack -d",
+    "test": "npx marko test"
   },
-  "dependencies": {
-    "@salesforce-ux/design-system": "^2.5.0",
-    "budo": "^11.1.0",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "file-loader": "^1.1.6",
-    "less": "^3.0.0",
-    "less-loader": "^4.0.5",
-    "marko": "^4.7.5",
-    "marko-loader": "^1.3.2",
-    "svg-loader": "0.0.2",
-    "url-loader": "^0.6.2",
-    "webpack": "^3.10.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@salesforce-ux/design-system": "^2.5.2",
+    "babel-preset-env": "^1.6.1",
+    "budo": "^11.1.7",
     "chai": "^4.1.2",
     "css-loader": "^0.28.9",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.7",
+    "lasso": "^3.1.2",
+    "lasso-babel-transform": "^1.0.2",
+    "lasso-less": "^2.4.7",
+    "lasso-marko": "^2.4.0",
+    "lasso-require": "^3.4.9",
+    "less": "^3.0.1",
+    "less-loader": "^4.0.5",
+    "marko": "^4.7.5",
     "marko-cli": "^2.2.1",
+    "marko-loader": "^1.3.2",
     "mocha": "^5.0.1",
-    "style-loader": "^0.20.1"
+    "style-loader": "^0.20.1",
+    "svg-loader": "0.0.2",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.11.0"
   },
   "repository": {
     "type": "git",
