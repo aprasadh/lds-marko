@@ -7,6 +7,7 @@ An implementation of [Salesforce Lightning Design System](https://www.lightningd
 ## Demonstration
 
 To see what is implemented in this package, first run `npm run build`, then run `npm start` and open the browser using the link displayed in the console.
+
 ## Components Status
 
 | Components             | Implemented   | Test Cases  |
