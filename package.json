@@ -5,7 +5,9 @@
   "scripts": {
     "start": "npx budo static/bundle.js --css static/bundle.css --live",
     "build": "npx webpack -d",
-    "test": "npx marko test"
+    "test": "npx marko test",
+    "servertest": "npx marko test --server",
+    "browsertest": "npx marko test --browser"
   },
   "dependencies": {},
   "devDependencies": {
