@@ -7,7 +7,9 @@
     "build": "npx webpack -d",
     "test": "npx marko test",
     "servertest": "npx marko test --server",
-    "browsertest": "npx marko test --browser"
+    "browsertest": "npx marko test --browser",
+    "jesttest": "npx jest --verbose --no-cache",
+    "clean": "del \"**/*.marko.js\""
   },
   "dependencies": {},
   "devDependencies": {
@@ -16,8 +18,10 @@
     "budo": "^11.1.7",
     "chai": "^4.1.2",
     "css-loader": "^0.28.9",
+    "del-cli": "^1.1.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.7",
+    "jest": "^22.4.0",
     "lasso": "^3.1.2",
     "lasso-babel-transform": "^1.0.2",
     "lasso-less": "^2.4.7",
@@ -49,5 +53,19 @@
     "name": "Guru Prasath Anandapadmanaban",
     "email": "aprasadh@gmail.com",
     "url": "https://medium.com/@guruprasath"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/static/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/.marko-cli/"
+    ],
+    "modulePaths": [
+      "<rootDir>",
+      "<rootDir>/components"
+    ],
+    "transform": {
+      "^.+\\.marko$": "<rootDir>/jest/marko-transform.js"
+    }
   }
 }

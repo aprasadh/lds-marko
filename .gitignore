@@ -63,3 +63,4 @@ package-lock.json
 .cache
 *.marko.js
 snapshots
+.vscode
