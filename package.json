@@ -19,6 +19,8 @@
     "chai": "^4.1.2",
     "css-loader": "^0.28.9",
     "del-cli": "^1.1.0",
+    "eslint": "^4.18.1",
+    "eslint-plugin-jest": "^21.12.2",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.7",
     "jest": "^22.4.0",
