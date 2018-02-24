@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component should render correctly 1`] = `"<!--M#s0--><div class=\\"slds-form-element\\"><label class=\\"slds-form-element__label\\" for=\\"s0-input-text\\">First Name</label><div class=\\"slds-form-element__control\\"><input type=\\"text\\" class=\\"slds-input\\" placeholder=\\"first name\\" value=\\"\\" id=\\"s0-input-text\\"></div></div><!--M/s0-->"`;

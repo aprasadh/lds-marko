@@ -89,6 +89,12 @@ To see what is implemented in this package, first run `npm run build`, then run 
 | Visual Picker          |               |             |
 | Walk Through           |               |             |
 
+## Thanks
+
+Thanks to the following people for their valuable help and guidance.
+
+* [Jason MacDonald](https://github.com/jasonmacdonald) for his help in setting up jest testing.
+
 ## License
 
 Apache License 2.0
