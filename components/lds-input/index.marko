@@ -1,5 +1,6 @@
 static {
   const Sprite = require('../sprite.js');
+  const Util = require('../util.js');
   
   function sprite(category, name){
     return new Sprite(category, name);
@@ -12,20 +13,44 @@ class {
   
   onCreate(input, out) {
     this.state = {
-      value: input.value,
-      required: input.required,
-      disabled: input.disabled,
-      errorMessage: input.errorMessage,
-      label:input.label,
-      placeholder:input.placeholder,
-      hasIcon:input.hasIcon,
+      type: "text",
+      value: "",
+      required: false,
+      disabled: false,
+      errorMessage: "",
+      label:"",
+      placeholder:"",
+      leftIcon:{},
+      rightIcon:{},
+      isStatic:false,
+      maxLength:0,
+      minLength:0,
+      name:"",
+      iconClassNames:[],
       attributes:{}
     };
     this.getOtherAttributes();
   }
   
   onInput(input, out) {
+    this.state = {
+      type: input.type || "text",
+      value: input.value,
+      required: input.required,
+      disabled: input.disabled,
+      errorMessage: input.errorMessage,
+      label:input.label,
+      placeholder:input.placeholder,
+      leftIcon:input.leftIcon,
+      rightIcon:input.rightIcon,
+      isStatic:input.isStatic,
+      maxLength:input.maxLength,
+      minLength:input.minLength,
+      name:input.name,
+      attributes:{}
+    };
     this.getOtherAttributes();
+    this.getIconClassNames();
   }
   
   onRender(out) {
@@ -38,6 +63,25 @@ class {
   
   onDestroy() {
     
+  }
+
+  getIconClassNames(){
+    var iconClassNames = ["slds-form-element__control"];
+    if(!Util.isObjectEmpty(this.state.leftIcon)
+      || !Util.isObjectEmpty(this.state.rightIcon)
+      || this.hasErrorMessage()){
+        iconClassNames.push("slds-input-has-icon");
+    }
+
+    if((!Util.isObjectEmpty(this.state.leftIcon) || this.hasErrorMessage()) 
+      && !Util.isObjectEmpty(this.state.rightIcon)){
+        iconClassNames.push("slds-input-has-icon_left-right");
+    }else if(!Util.isObjectEmpty(this.state.leftIcon) || this.hasErrorMessage()){
+      iconClassNames.push("slds-input-has-icon_left");
+    }else if(!Util.isObjectEmpty(this.state.rightIcon)){
+      iconClassNames.push("slds-input-has-icon_right");
+    }
+    this.state.iconClassNames = iconClassNames;
   }
   
   getOtherAttributes(){
@@ -61,22 +105,36 @@ class {
   }
 }
 <div class=["slds-form-element", (component.hasErrorMessage() && "slds-has-error")]>
-  <label class="slds-form-element__label" for:scoped="input-text">
-  <if(state.required)>
-    <abbr class='slds-required' title='required'>*</abbr>
+  <if(state.isStatic)>
+    <span class="slds-form-element__label">${state.label}</span>
+    <div class="slds-form-element__control">
+      <span class="slds-form-element__static">${state.value}</span>
+    </div>
   </if>
-  ${state.label}
-  </label>
-  <div class=["slds-form-element__control", (state.hasIcon && "slds-input-has-icon slds-input-has-icon_left")]>
-  <if(state.hasIcon)>
-    <lds-svg classNames=["slds-input__icon"] sprite=sprite("utility", "warning")/>
-  </if>
-    <input type="text" id:scoped="input-text" class="slds-input"
-      placeholder="${state.placeholder}" key="textinput"
-      value="${state.value}"
-      ${state.attributes}/>
-  </div>
-  <if(component.hasErrorMessage())>
-    <div id:scoped="error-message" key="errormessage" class="slds-form-element__help">${state.errorMessage}</div>
-  </if>
+  <else>
+    <label class="slds-form-element__label" for:scoped="input-text">
+    <if(state.required)>
+      <abbr class='slds-required' title='required'>*</abbr>
+    </if>
+    ${state.label}
+    </label>
+    <div class="${state.iconClassNames}">
+    <if(!Util.isObjectEmpty(state.leftIcon))>
+      <lds-svg classNames=["slds-icon", "slds-input__icon", "slds-input__icon_left", "slds-icon-text-default"] sprite="${state.leftIcon}"/>
+    </if>
+    <if(component.hasErrorMessage())>
+      <lds-svg classNames=["slds-input__icon"] sprite=sprite("utility", "warning")/>
+    </if>
+      <input type="${state.type}" id:scoped="input-text" class="slds-input"
+        placeholder="${state.placeholder}" key="textinput"
+        value="${state.value}"
+        ${state.attributes}/>
+    <if(!Util.isObjectEmpty(state.rightIcon))>
+      <lds-svg classNames=["slds-icon", "slds-input__icon", "slds-input__icon_right", "slds-icon-text-default"] sprite="${state.rightIcon}"/>
+    </if>
+    </div>
+    <if(component.hasErrorMessage())>
+      <div id:scoped="error-message" key="errormessage" class="slds-form-element__help">${state.errorMessage}</div>
+    </if>
+  </else>
 </div>
