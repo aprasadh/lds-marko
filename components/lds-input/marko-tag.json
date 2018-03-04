@@ -1,0 +1,22 @@
+{
+    "@type" :{
+        "required": true,
+        "type": "string",
+        "enum":["text", "password", "datetime", "datetime-local", "date",
+            "month", "time", "week", "number", "email", "url",
+            "search", "tel", "color"]
+    },
+    "@value" :{
+        "type": "string"
+    },
+    "@required": "boolean",
+    "@disabled": "boolean",
+    "@isStatic": "boolean",
+    "@errorMessage": "string",
+    "@label": "string",
+    "@placeholder": "string",
+    "@leftIcon": "object",
+    "@rightIcon": "object",
+    "@maxLength": "string",
+    "@minLength": "string"
+}

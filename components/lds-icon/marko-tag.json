@@ -1,0 +1,14 @@
+{
+    "@size" :{
+        "type": "string",
+        "enum":["x-small", "small", "large"]
+    },
+    "@color" :{
+        "type": "string",
+        "enum":["default", "error", "warning", "light"]
+    },
+    "@circle": "boolean",
+    "@sprite": "object",
+    "@description": "string",
+    "@displaytype": "string"
+}

@@ -1,31 +1,33 @@
 static {
     var Sprite = require('../sprite.js');
     var Util = require('../util.js');
+
+    function sprite(category, name){
+        return new Sprite(category, name);
+    }
 }
 
 class {
     onCreate(input, out){
         this.state = {
-            classNames : input.classNames,
-            src : input.src,
-            sprite : input.sprite,
+            classNames : "",
+            src : "",
+            sprite : {},
             spriteURL : ""
         }
-
-        this.getSpriteURL();
     }
 
     onInput(input, out){
         this.state = {
             classNames : input.classNames,
             src : input.src,
-            sprite : input.sprite
+            sprite: input.sprite
         }
         this.getSpriteURL();
     }
 
     getSpriteURL(){
-        if(this.state.sprite !== null){
+        if(!Util.isObjectEmpty(this.state.sprite)){
             this.state.spriteURL = this.state.sprite.getSpriteURL();
         }else{
             this.state.spriteURL = this.state.src;

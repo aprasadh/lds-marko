@@ -1,0 +1,16 @@
+{
+    "@src": "string",
+    "@classNames <className>[]":{
+        "type" : "string"
+    },
+    "@sprite": {
+        "@category":{
+            "required": true,
+            "type": "string"
+        },
+        "@name":{
+            "required": true,
+            "type": "string"
+        }
+    }
+}

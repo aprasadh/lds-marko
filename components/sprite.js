@@ -16,7 +16,7 @@ module.exports = class Sprite{
         this.name = name;
     }
 
-    getSpriteURL(category, name){
+    getSpriteURL(){
         return spriteCategory[this.category] + "#" + this.name.replace("-", "_");
     }
 };
